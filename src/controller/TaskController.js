@@ -66,7 +66,7 @@ exports.GetTask = (req, res) => {
 exports.Update = (req, res) => {
     let reqBody = req.body
 
-    TaskModel.updateOne({ _id: reqBody._id }, { status: 'Active' }, (err, data) => {
+    TaskModel.updateOne({ _id: reqBody._id }, { status: reqBody.status }, (err, data) => {
         if (err) {
             res.status(400).json({
                 hasError: true,
